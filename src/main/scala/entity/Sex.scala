@@ -1,4 +1,4 @@
-package vo
+package entity
 
 sealed abstract class Sex(val value: String)
 

@@ -1,6 +1,6 @@
 import converter.UserJsonConverter
 import org.joda.time.DateTime
-import vo._
+import entity._
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -9,6 +9,7 @@ object Main {
       info = UserView(
         emailAddress = Seq(EmailAddress("a@example.com"), EmailAddress("b@example.com")),
         sex = Male,
+        age = Age(20),
         createdAt = new DateTime("2018-03-15")
       )
     )

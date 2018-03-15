@@ -14,7 +14,7 @@ object DeterministicTestObject extends AbstractTestObject[Int] {
   def apply[A](implicit rnd: DeterministicTestObject[A]): IntState[A] = rnd.generate
 
   implicit val testString: DeterministicTestObject[String] = new DeterministicTestObject[String] {
-    def generate: IntState[String] = State(s => (s + 1, s"string ($s)"))
+    def generate: IntState[String] = State(s => (s + 1, s.toString))
   }
 
   implicit val testInt: DeterministicTestObject[Int] = new DeterministicTestObject[Int] {

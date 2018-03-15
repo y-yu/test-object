@@ -4,7 +4,7 @@ import org.scalatest.{MustMatchers, WordSpec}
 import play.api.libs.json.{JsValue, Json}
 import testobject.instance.constant.ConstantTestObject
 import testobject.instance.deterministic.DeterministicTestObject
-import vo.User
+import entity.User
 
 class UserJsonConverterSpec extends WordSpec with MustMatchers {
   trait SetUp {
@@ -22,6 +22,7 @@ class UserJsonConverterSpec extends WordSpec with MustMatchers {
           |  "info" : {
           |    "email_address" : ["string", "string", "string"],
           |    "sex" : "female",
+          |    "age" : 123,
           |    "created_at" : "2018-03-13T00:00:00.000+09:00"
           |  }
           |}
@@ -43,11 +44,12 @@ class UserJsonConverterSpec extends WordSpec with MustMatchers {
         Json.parse(
           """
             |{
-            |  "id" : "string (0)",
+            |  "id" : "0",
             |  "info" : {
-            |    "email_address" : ["string (1)", "string (2)", "string (3)"],
-            |    "sex" : "Unknown(string (4))",
-            |    "created_at" : "2018-03-18T00:00:00.000+09:00"
+            |    "email_address" : ["1", "2", "3"],
+            |    "sex" : "Unknown(4)",
+            |    "age" : 5,
+            |    "created_at" : "2018-03-19T00:00:00.000+09:00"
             |  }
             |}
           """.stripMargin
@@ -55,18 +57,19 @@ class UserJsonConverterSpec extends WordSpec with MustMatchers {
         Json.parse(
           """
             |{
-            |  "id" : "string (6)",
+            |  "id" : "7",
             |  "info" : {
-            |    "email_address" : ["string (7)", "string (8)", "string (9)"],
-            |    "sex" : "Unknown(string (10))",
-            |    "created_at" : "2018-03-24T00:00:00.000+09:00"
+            |    "email_address" : ["8", "9", "10"],
+            |    "sex" : "male",
+            |    "age" : 11,
+            |    "created_at" : "2018-03-25T00:00:00.000+09:00"
             |  }
             |}
           """.stripMargin
         )
       )
 
-      someUsers zip expectedSeq foreach {
+      (someUsers zip expectedSeq) foreach {
         case (user, expected) =>
           val actual = sut.toJson(user)
           actual must be(expected)

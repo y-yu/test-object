@@ -1,3 +1,3 @@
-package vo
+package entity
 
 case class UserId(value: String)
