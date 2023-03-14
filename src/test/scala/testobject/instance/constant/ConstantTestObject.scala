@@ -1,6 +1,6 @@
 package testobject.instance.constant
 
-import org.joda.time.DateTime
+import org.joda.time.{DateTime, DateTimeZone}
 import shapeless.{:+:, ::, CNil, Coproduct, Generic, HList, HNil, Inl, Lazy}
 import testobject.TestObject
 import testobject.instance.AbstractTestObject
@@ -37,7 +37,7 @@ object ConstantTestObject extends AbstractTestObject[Unit] {
   }
 
   implicit val testDateTime: ConstantTestObject[DateTime] = new ConstantTestObject[DateTime] {
-    def generate: UnitState[DateTime] = state(new DateTime(2018, 3, 13, 0, 0))
+    def generate: UnitState[DateTime] = state(new DateTime(2018, 3, 13, 0, 0, DateTimeZone.forID("Asia/Tokyo")))
   }
 
   implicit def testOption[A: ConstantTestObject]: ConstantTestObject[Option[A]] = new ConstantTestObject[Option[A]] {

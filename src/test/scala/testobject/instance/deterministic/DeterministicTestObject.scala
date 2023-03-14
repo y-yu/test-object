@@ -1,6 +1,6 @@
 package testobject.instance.deterministic
 
-import org.joda.time.DateTime
+import org.joda.time.{DateTime, DateTimeZone}
 import shapeless.{:+:, ::, CNil, Coproduct, Generic, HList, HNil, Inl, Inr, Lazy}
 import testobject.TestObject
 import testobject.instance.AbstractTestObject
@@ -34,7 +34,7 @@ object DeterministicTestObject extends AbstractTestObject[Int] {
   }
 
   implicit val testDateTime: DeterministicTestObject[DateTime] = new DeterministicTestObject[DateTime] {
-    def generate: IntState[DateTime] = State(s => (s + 1, new DateTime(2018, 3, 13, 0, 0).plusDays(s)))
+    def generate: IntState[DateTime] = State(s => (s + 1, new DateTime(2018, 3, 13, 0, 0, DateTimeZone.forID("Asia/Tokyo")).plusDays(s)))
   }
 
   implicit def testOption[A: DeterministicTestObject]: DeterministicTestObject[Option[A]] = new DeterministicTestObject[Option[A]] {

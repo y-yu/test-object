@@ -1,12 +1,12 @@
 package converter
 
-import org.scalatest.{MustMatchers, WordSpec}
 import play.api.libs.json.{JsValue, Json}
 import testobject.instance.constant.ConstantTestObject
 import testobject.instance.deterministic.DeterministicTestObject
 import entity.User
+import org.scalatest.wordspec.AnyWordSpec
 
-class UserJsonConverterSpec extends WordSpec with MustMatchers {
+class UserJsonConverterSpec extends AnyWordSpec {
   trait SetUp {
     val sut = new UserJsonConverter
   }
@@ -31,7 +31,7 @@ class UserJsonConverterSpec extends WordSpec with MustMatchers {
 
       val actual = sut.toJson(constantUser)
 
-      actual must be(expected)
+      assert(actual === expected)
     }
 
     "return some JSONs successfully" in new SetUp {
@@ -72,7 +72,7 @@ class UserJsonConverterSpec extends WordSpec with MustMatchers {
       (someUsers zip expectedSeq) foreach {
         case (user, expected) =>
           val actual = sut.toJson(user)
-          actual must be(expected)
+          assert(actual === expected)
       }
     }
   }
