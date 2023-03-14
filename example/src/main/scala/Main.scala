@@ -1,6 +1,7 @@
 import converter.UserJsonConverter
-import org.joda.time.DateTime
-import entity._
+import entity.*
+import java.time.ZoneId
+import java.time.ZonedDateTime
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -10,7 +11,7 @@ object Main {
         emailAddress = Seq(EmailAddress("a@example.com"), EmailAddress("b@example.com")),
         sex = Male,
         age = Age(20),
-        createdAt = new DateTime("2018-03-15")
+        createdAt = ZonedDateTime.of(2018, 3, 15, 0, 0, 0, 0, ZoneId.of("Asia/Tokyo"))
       )
     )
 

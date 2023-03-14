@@ -1,6 +1,6 @@
 package entity
 
-import org.joda.time.DateTime
+import java.time.ZonedDateTime
 
 case class User(id: UserId, info: UserView)
 
@@ -10,5 +10,5 @@ case class UserView(
   emailAddress: Seq[EmailAddress],
   sex: Sex,
   age: Age,
-  createdAt: DateTime
+  createdAt: ZonedDateTime
 )
