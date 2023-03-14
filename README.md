@@ -1,14 +1,15 @@
 Test Object
 =========================
+[![CI](https://github.com/y-yu/test-object/actions/workflows/ci.yml/badge.svg)](https://github.com/y-yu/test-object/actions/workflows/ci.yml)
 
 ## How to Use
 
 ```console
-$ sbt run
+$ ./sbt "example / run"
 ```
 
 or
 
 ```console
-$ sbt test
+$ ./sbt "example / test"
 ```
