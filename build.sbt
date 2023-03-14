@@ -80,7 +80,7 @@ lazy val core =
         }
       },
       libraryDependencies ++= Seq(
-        "org.typelevel" %% "cats-core" % "2.8.0",
+        "org.typelevel" %% "cats-core" % "2.9.0",
         "org.scalatest" %% "scalatest" % "3.2.15" % "test"
       )
     )
