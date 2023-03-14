@@ -11,7 +11,7 @@ jobs:
       matrix:
         java-distribution: [ 'temurin' ]
         java-version: [ '11', '17' ]
-        # setScala3: [ '', 'SetScala3' ]
+        set-scala3: [ '', 'SetScala3' ]
     steps:
       - uses: actions/checkout@v2
 
@@ -23,7 +23,7 @@ jobs:
       - uses: coursier/cache-action@v6
 
       - name: Run
-        run: ./sbt run
+        run: ./sbt ${{ matrix.set-scala3 }} "example/run"
 
       - name: Test
-        run: ./sbt test
+        run: ./sbt scalafmtSbtCheck ${{ matrix.set-scala3 }} scalafmtCheckAll "example/test"
