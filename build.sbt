@@ -92,7 +92,7 @@ lazy val example =
       name := s"$projectName-example",
       libraryDependencies ++= {
         if (isScala3.value) {
-          Seq("com.typesafe.play" %% "play-json" % "2.10.0-RC7")
+          Seq("com.typesafe.play" %% "play-json" % "2.10.0-RC9")
         } else {
           Seq("com.typesafe.play" %% "play-json" % "2.9.4")
         }
