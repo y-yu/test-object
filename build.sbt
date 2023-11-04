@@ -94,7 +94,7 @@ lazy val example =
         if (isScala3.value) {
           Seq("com.typesafe.play" %% "play-json" % "2.10.0-RC9")
         } else {
-          Seq("com.typesafe.play" %% "play-json" % "2.10.2")
+          Seq("com.typesafe.play" %% "play-json" % "2.10.3")
         }
       },
       libraryDependencies ++= Seq(
