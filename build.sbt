@@ -98,7 +98,7 @@ lazy val example =
         }
       },
       libraryDependencies ++= Seq(
-        "org.mockito" % "mockito-core" % "5.6.0" % "test",
+        "org.mockito" % "mockito-core" % "5.7.0" % "test",
         "org.scalatest" %% "scalatest" % "3.2.17" % "test"
       )
     )
