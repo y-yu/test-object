@@ -90,14 +90,8 @@ lazy val example =
   (project in file("example"))
     .settings(
       name := s"$projectName-example",
-      libraryDependencies ++= {
-        if (isScala3.value) {
-          Seq("com.typesafe.play" %% "play-json" % "2.10.0-RC9")
-        } else {
-          Seq("com.typesafe.play" %% "play-json" % "2.10.4")
-        }
-      },
       libraryDependencies ++= Seq(
+        "org.playframework" %% "play-json" % "3.0.2",
         "org.mockito" % "mockito-core" % "5.10.0" % "test",
         "org.scalatest" %% "scalatest" % "3.2.17" % "test"
       )
