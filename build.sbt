@@ -5,7 +5,7 @@ import org.scalafmt.sbt.ScalafmtPlugin.autoImport._
 
 val projectName = "test-object"
 
-val scala213 = "2.13.12"
+val scala213 = "2.13.13"
 val scala3 = "3.3.3"
 
 val isScala3 = Def.setting(
@@ -92,7 +92,7 @@ lazy val example =
       name := s"$projectName-example",
       libraryDependencies ++= Seq(
         "org.playframework" %% "play-json" % "3.0.2",
-        "org.mockito" % "mockito-core" % "5.10.0" % "test",
+        "org.mockito" % "mockito-core" % "5.11.0" % "test",
         "org.scalatest" %% "scalatest" % "3.2.18" % "test"
       )
     )
