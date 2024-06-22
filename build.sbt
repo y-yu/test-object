@@ -91,7 +91,7 @@ lazy val example =
     .settings(
       name := s"$projectName-example",
       libraryDependencies ++= Seq(
-        "org.playframework" %% "play-json" % "3.0.3",
+        "org.playframework" %% "play-json" % "3.0.4",
         "org.mockito" % "mockito-core" % "5.12.0" % "test",
         "org.scalatest" %% "scalatest" % "3.2.18" % "test"
       )
