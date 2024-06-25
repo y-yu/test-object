@@ -81,7 +81,7 @@ lazy val core =
       },
       libraryDependencies ++= Seq(
         "org.typelevel" %% "cats-core" % "2.12.0",
-        "org.scalatest" %% "scalatest" % "3.2.18" % "test"
+        "org.scalatest" %% "scalatest" % "3.2.19" % "test"
       )
     )
     .settings(baseSettings ++ publishSettings)
@@ -93,7 +93,7 @@ lazy val example =
       libraryDependencies ++= Seq(
         "org.playframework" %% "play-json" % "3.0.4",
         "org.mockito" % "mockito-core" % "5.12.0" % "test",
-        "org.scalatest" %% "scalatest" % "3.2.18" % "test"
+        "org.scalatest" %% "scalatest" % "3.2.19" % "test"
       )
     )
     .settings(baseSettings)
