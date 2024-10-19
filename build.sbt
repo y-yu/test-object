@@ -92,7 +92,7 @@ lazy val example =
       name := s"$projectName-example",
       libraryDependencies ++= Seq(
         "org.playframework" %% "play-json" % "3.0.4",
-        "org.mockito" % "mockito-core" % "5.14.1" % "test",
+        "org.mockito" % "mockito-core" % "5.14.2" % "test",
         "org.scalatest" %% "scalatest" % "3.2.19" % "test"
       )
     )
