@@ -75,7 +75,7 @@ lazy val core =
         } else {
           Seq(
             "com.chuusai" %% "shapeless" % "2.3.13",
-            compilerPlugin("org.typelevel" %% "kind-projector" % "0.13.3" cross CrossVersion.full)
+            compilerPlugin("org.typelevel" %% "kind-projector" % "0.13.4" cross CrossVersion.full)
           )
         }
       },
