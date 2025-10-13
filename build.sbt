@@ -75,7 +75,7 @@ lazy val core =
         } else {
           Seq(
             "com.chuusai" %% "shapeless" % "2.3.13",
-            compilerPlugin("org.typelevel" %% "kind-projector" % "0.13.3" cross CrossVersion.full)
+            compilerPlugin("org.typelevel" %% "kind-projector" % "0.13.4" cross CrossVersion.full)
           )
         }
       },
@@ -91,7 +91,7 @@ lazy val example =
     .settings(
       name := s"$projectName-example",
       libraryDependencies ++= Seq(
-        "org.playframework" %% "play-json" % "3.0.5",
+        "org.playframework" %% "play-json" % "3.0.6",
         "org.mockito" % "mockito-core" % "5.20.0" % "test",
         "org.scalatest" %% "scalatest" % "3.2.19" % "test"
       )
