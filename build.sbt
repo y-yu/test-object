@@ -14,8 +14,8 @@ val isScala3 = Def.setting(
 
 val baseSettings = Seq(
   organization := "com.github.y-yu",
-  homepage := Some(url("https://github.com/y-yu")),
-  licenses := Seq("MIT" -> url(s"https://github.com/y-yu/$projectName/blob/master/LICENSE")),
+  homepage := Some(uri("https://github.com/y-yu")),
+  licenses := Seq("MIT" -> uri(s"https://github.com/y-yu/$projectName/blob/master/LICENSE")),
   scalaVersion := scala213,
   crossScalaVersions := Seq(scala213, scala3),
   scalacOptions ++= {
@@ -75,7 +75,7 @@ lazy val core =
         } else {
           Seq(
             "com.chuusai" %% "shapeless" % "2.3.13",
-            compilerPlugin("org.typelevel" %% "kind-projector" % "0.13.4" cross CrossVersion.full)
+            compilerPlugin(("org.typelevel" %% "kind-projector" % "0.13.4").cross(CrossVersion.full))
           )
         }
       },
@@ -101,11 +101,11 @@ lazy val example =
 
 lazy val publishSettings = Seq(
   publishMavenStyle := true,
-  publishTo := Some(
+  publishTo := (
     if (isSnapshot.value)
-      Opts.resolver.sonatypeSnapshots
+      None
     else
-      Opts.resolver.sonatypeStaging
+      localStaging.value
   ),
   Test / publishArtifact := false,
   pomExtra :=
@@ -134,7 +134,7 @@ lazy val publishSettings = Seq(
     releaseStepCommandAndRemaining("^ publishSigned"),
     setNextVersion,
     commitNextVersion,
-    releaseStepCommand("sonatypeReleaseAll"),
+    releaseStepCommand("sonaRelease"),
     pushChanges
   )
 )
@@ -144,6 +144,6 @@ val tagName = Def.setting {
 }
 
 val tagOrHash = Def.setting {
-  if (isSnapshot.value) sys.process.Process("git rev-parse HEAD").lineStream_!.head
+  if (isSnapshot.value) sys.process.Process("git rev-parse HEAD").lazyLines_!.head
   else tagName.value
 }
