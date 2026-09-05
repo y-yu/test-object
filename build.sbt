@@ -5,7 +5,7 @@ import org.scalafmt.sbt.ScalafmtPlugin.autoImport._
 
 val projectName = "test-object"
 
-val scala213 = "2.13.18"
+val scala213 = "3.9.0"
 val scala3 = "3.3.8"
 
 val isScala3 = Def.setting(
